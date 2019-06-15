@@ -1,0 +1,10 @@
+{
+  "status" : "true",
+  "data" : {
+    "cityName" : "d643a24a-82f6-4505-875c-0c793795bd64",
+    "updatedTime" : null,
+    "weather" : "2017-12-06T07:06:49Z",
+    "wind" : null,
+    "temperature" : "2017-12-06T07:08:49Z"
+  }
+}
