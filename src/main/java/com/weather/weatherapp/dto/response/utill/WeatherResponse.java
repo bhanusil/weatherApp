@@ -7,7 +7,7 @@ public class WeatherResponse implements Serializable {
     private static final long serialVersionUID = -1655013025636955366L;
 
     private boolean status;
-    private Object data;
+    private transient Object data;
     private WeatherError weatherError;
 
     public boolean isStatus() {

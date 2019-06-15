@@ -2,11 +2,11 @@ package com.weather.weatherapp.dto;
 
 import java.io.Serializable;
 
-public class LocationDetailsDTO implements Serializable {
+public class WeatherDetailsDTO implements Serializable {
     private static final long serialVersionUID = 5246887524998916360L;
 
     private String name;
-    private String code;
+    private Long code;
 
     public String getName() {
         return name;
@@ -16,11 +16,11 @@ public class LocationDetailsDTO implements Serializable {
         this.name = name;
     }
 
-    public String getCode() {
+    public Long getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(Long code) {
         this.code = code;
     }
 }
