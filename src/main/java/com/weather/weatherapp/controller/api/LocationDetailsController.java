@@ -1,4 +1,4 @@
-package com.weather.weatherapp.controlle.api;
+package com.weather.weatherapp.controller.api;
 
 import com.weather.weatherapp.dto.request.WeatherDetailsRequestDTO;
 import com.weather.weatherapp.dto.response.utill.WeatherResponse;
