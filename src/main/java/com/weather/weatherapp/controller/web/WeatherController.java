@@ -1,4 +1,4 @@
-package com.weather.weatherapp.controlle.web;
+package com.weather.weatherapp.controller.web;
 
 import com.weather.weatherapp.dto.LocationDetailsDTO;
 import com.weather.weatherapp.service.WeatherAppService;
