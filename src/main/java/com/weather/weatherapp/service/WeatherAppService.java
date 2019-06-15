@@ -2,7 +2,7 @@ package com.weather.weatherapp.service;
 
 import com.weather.weatherapp.dao.weather.Weather;
 import com.weather.weatherapp.dao.weather.WeatherRepository;
-import com.weather.weatherapp.dto.WeatherDetailsDTO;
+import com.weather.weatherapp.dto.LocationDetailsDTO;
 import com.weather.weatherapp.dto.response.WeatherDetailsResponseDTO;
 import com.weather.weatherapp.dto.response.utill.WeatherResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,24 +22,24 @@ public class WeatherAppService {
     private WeatherRepository repository;
 
     @Autowired
-    private ObjectMapper objetMapper;
+    private ObjectMapper objectMapper;
 
-    public List<WeatherDetailsDTO> getLocationList(){
-        List<WeatherDetailsDTO> locationDetailsList = new ArrayList<>();
-        WeatherDetailsDTO weatherDetailsDTO = null;
+    public List<LocationDetailsDTO> getLocationList(){
+        List<LocationDetailsDTO> locationDetailsList = new ArrayList<>();
+        LocationDetailsDTO locationDetailsDTO = null;
 
         List<Weather> weatherList = repository.findAll();
 
         for(Weather vo : weatherList){
-            weatherDetailsDTO = new WeatherDetailsDTO();
-            weatherDetailsDTO.setCode(vo.getId());
-            weatherDetailsDTO.setName(vo.getCityName());
-            locationDetailsList.add(weatherDetailsDTO);
+            locationDetailsDTO = new LocationDetailsDTO();
+            locationDetailsDTO.setCode(vo.getId());
+            locationDetailsDTO.setName(vo.getCityName());
+            locationDetailsList.add(locationDetailsDTO);
         }
 
          if(locationDetailsList.isEmpty()){
             locationDetailsList = new ArrayList<>();
-            WeatherDetailsDTO locationDetailsTemp = new WeatherDetailsDTO();
+            LocationDetailsDTO locationDetailsTemp = new LocationDetailsDTO();
             locationDetailsTemp.setName("No Location found");
             locationDetailsTemp.setCode(0L);
         }
@@ -53,7 +53,7 @@ public class WeatherAppService {
 
         if(weatherList.isPresent()){
             Weather weatherOut = weatherList.get();
-            weatherDetailsResponseDTO = objetMapper.convertValue(weatherOut,WeatherDetailsResponseDTO.class);
+            weatherDetailsResponseDTO = objectMapper.convertValue(weatherOut,WeatherDetailsResponseDTO.class);
             DateFormat dateFormat = new SimpleDateFormat("EEEEE HH:mm a");
             String formattedDate = dateFormat.format(weatherOut.getUpdatedTime());
             weatherDetailsResponseDTO.setUpdatedTime(formattedDate);
